@@ -1,0 +1,60 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Create Employee</h3>
+  </div>
+  <div class="panel-body">
+      <div class="form-group">
+        <label for="fullname"> Full Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="fullName" id="fullname">
+      </div>
+      <div class="form-group">
+        <label for="email"> E-mail</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber"> Phone Number</label>
+        <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" id="phoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <div class="form-control">
+          <label class="radio-inline" for="">
+            <input type="radio" value="male" [(ngModel)]="gender" name="gender">
+            Male
+          </label>
+          <label class="radio-inline" for="">
+            <input type="radio" value="female" [(ngModel)]="gender" name="gender">
+            Female
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="contactPreference">Contact Preference</label>
+          <div class="form-control">
+            <label class="radio-inline" for="contactPreference">
+              <input type="radio" value="email" [(ngModel)]="contactPreference" name="contactPreference">
+              E-mail
+            </label>
+            <label class="radio-inline" for="">
+              <input type="radio" value="phone" [(ngModel)]="contactPreference" name="contactPreference">
+              Phone
+            </label>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="form-control">
+            <label class="checkbox-inline" for="contactPreference">
+              <input type="checkbox" value="email" [(ngModel)]="isActive" name="isActive">
+              Is Active
+            </label>
+          </div>
+      </div>
+    </div>
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</div>
+</form>
+
+{{employeeForm.value | json}}

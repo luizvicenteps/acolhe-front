@@ -1,0 +1,32 @@
+<h2>Novo usuário</h2>
+<hr>
+<form #userForm="ngForm" (ngSubmit)="saveUser(userForm)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Create Employee</h3>
+      </div>
+      <div class="panel-body">
+          <div class="form-group">
+            <label for="fullname"> Nome</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="fullName" id="fullname">
+          </div>
+          <div class="form-group">
+            <label for="lastname"> Sobrenome</label>
+            <input type="text" class="form-control" name="lastname" [(ngModel)]="lastname" id="lastname">
+          </div>
+          <div class="form-group">
+            <label for="email"> E-mail</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="email" id="email">
+          </div>
+          <div class="form-group">
+            <label for="cpf"> CPF</label>
+            <input type="text" class="form-control" name="cpf" [(ngModel)]="cpf" id="cpf">
+          </div>
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+</form>
+    
+    {{userForm.value | json}}
