@@ -15,21 +15,20 @@ const httpOptions = {
   styleUrls: ['./edit-users-component.component.css']
 })
 export class EditUsersComponentComponent implements OnInit {
-  baseUrlApi: string;
   public users;
   public headers;
 
   constructor(private _usersService: UsersService, private http: HttpClient, private environment: ConfigService,) {
-    this.baseUrlApi = environment.config.baseUrlApi;
+
    }
 
   ngOnInit() {
   }
-  saveUser(userForm: NgForm){
-    console.log('Chegou no saveUser');
-    console.log(userForm);
-    this.http.post(this.baseUrlApi +'/users', JSON.stringify(userForm)).subscribe();
- 
-  }
+
+  saveUser(userForm: NgForm) {
+    console.log('Chegou no saveUser SERVICE');
+    var ok = this._usersService.saveUser(userForm.value);
+    console.log('Ok: '+ok);
+   } 
 
 }

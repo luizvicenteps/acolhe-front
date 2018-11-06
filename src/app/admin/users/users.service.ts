@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from '../../config/config.service';
-import { NgForm } from '@angular/forms';
 
 
 const httpOptions = {
@@ -21,7 +20,10 @@ export class UsersService {
   getUsers() {
     return this.http.get(this.baseUrlApi +'/users');
   }
-  saveUser(empform: NgForm) {
-    return this.http.post(this.baseUrlApi +'/users',empform);
+  saveUser(userForm){
+    console.log('Chegou no saveUser');
+    console.log(userForm);
+    return this.http.post(this.baseUrlApi +'/users', userForm).subscribe();
+ 
   }
 }
